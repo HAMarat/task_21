@@ -35,13 +35,13 @@ def main():
         user_input = input(
             'Добрый день, введите ваш запрос в формате: Доставить "количество" "наименование" из "откуда" в "куда"\n'
             'Если хотите закончить нажмите: "стоп" или "stop"\n'
-        )
+        ).lower()
 
         if user_input in ["стоп", "stop"]:
             break
-            
+
         try:
-            user_request = Request(user_input.lower(), storages)
+            user_request = Request(user_input, storages)
         except RequestError as error:
             print(error.message)
             continue
